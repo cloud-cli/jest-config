@@ -2,6 +2,10 @@
   "name": "@cloud-cli/jest-config",
   "version": "0.0.0",
   "main": "./jest.config.mjs",
+  "scripts": {
+    "build": "echo true",
+    "test": "jest"
+  },
   "dependencies": {
     "@types/jest": "^27.0.1",
     "@types/node": "^14.18.21",

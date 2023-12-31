@@ -10,13 +10,16 @@ export default {
       statements: 100,
     },
   },
-  transformIgnorePatterns: [],
-  testMatch: ['**/src/**/*.spec.[jt]s'],
-  extensionsToTreatAsEsm: ['.ts'],
+  transformIgnorePatterns: ['/node_modules/', '/\\.mjs$/', '/\\.js$/'],
+  testPathIgnorePatterns: ['/node_modules/'],
+  testMatch: ['**/*.spec.[tj]s', '**/*.spec.m[tj]s'],
+  moduleFileExtensions: ['ts', 'mts', 'js', 'mjs', 'cjs', 'json'],
+  extensionsToTreatAsEsm: ['.ts', '.mts'],
   moduleNameMapper: {
-    '^(\\.{1,2}/.*)\\.js$': '$1',
+    '^(\\.{1,2}/.*)\\.[m]?js$': '$1',
   },
   transform: {
-    '^.+\\.[tj]sx?$': ['ts-jest', { useESM: true }],
+    '^.+\\.[tj]s?$': ['ts-jest', { useESM: true }],
+    '^.+\\.m[tj]s$': ['ts-jest', { useESM: true }],
   },
 };
